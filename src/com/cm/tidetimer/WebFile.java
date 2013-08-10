@@ -10,30 +10,30 @@ import android.net.NetworkInfo;
 import android.util.Log;
 
 public class WebFile {
-	//build functionality to connect to a website and pull data back and text for internet connection
+	//build functionality to connect to a website and pull data back and test for internet connection
 
 
 		static Boolean _conn = false; //always assume there's no connection
 		static String _connectionType = "Unavailable";
 		
-		public static String getConnnectionType(Context context){
+		public static String getConnnectionType(Context context){ //runs function
 			netInfo(context);
 			return _connectionType;
 		}
 		
-		public static Boolean getConnectionStatus(Context context){
+		public static Boolean getConnectionStatus(Context context){ //returns boolean
 			netInfo(context);
-			return _conn;
+			return _conn; //returns connection status
 		}
 		
 		//test Internet connection on android device
 		private static void netInfo(Context context){
 			//creating 2 values representing if connected and what type of connection
 			ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-			NetworkInfo ni = cm.getActiveNetworkInfo();
+			NetworkInfo ni = cm.getActiveNetworkInfo();//gets dynamic network info.
 			if(ni != null){
 				if(ni.isConnected()){
-					_connectionType = ni.getTypeName();
+					_connectionType = ni.getTypeName();//if theres a connection and what type it is
 					_conn = true;
 			}
 		
