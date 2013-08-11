@@ -1,3 +1,11 @@
+/*
+ * 
+ * Crystal McDonald
+ * Java II
+ * 1308
+ * Week 1
+ * 
+ */
 package com.cm.tidetimer;
 
 import java.io.BufferedInputStream;

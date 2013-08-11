@@ -16,9 +16,9 @@ import android.widget.TextView;
 public class TideDisplay extends GridLayout{
 
 	
-	TextView _dateTime;//pretty
-	TextView _loc;//tideSite
-	TextView _height;// swell height
+	TextView _tideSite;//pretty
+	TextView tzname;//tideSite
+	TextView _units;// swell height
 	TextView _type; //high or Low tide
 	Context _context;
 	
@@ -34,15 +34,15 @@ public class TideDisplay extends GridLayout{
 		
 		TextView dateTimeLabel = new TextView(_context);
 		dateTimeLabel.setText("Date & Time: ");
-		_dateTime = new TextView(_context);
+		_tideSite = new TextView(_context);
 		
 		TextView locLabel = new TextView(_context);
 		locLabel.setText("Location: ");
-		_loc = new TextView(_context);
+		tzname = new TextView(_context);
 		
 		TextView heightLabel = new TextView(_context);
 		heightLabel.setText("Swell: ");
-		_height = new TextView(_context);
+		_units = new TextView(_context);
 		
 		TextView HorLLabel = new TextView(_context);
 		HorLLabel.setText("Tidal Prediction: ");
@@ -51,11 +51,11 @@ public class TideDisplay extends GridLayout{
 		
 		//add views to display
 		this.addView(dateTimeLabel);
-		this.addView(_dateTime);
+		this.addView(_tideSite);
 		this.addView(locLabel);
-		this.addView(_loc);
+		this.addView(tzname);
 		this.addView(heightLabel);
-		this.addView(_height);
+		this.addView(_units);
 		this.addView(HorLLabel);
 		this.addView(_type);
 		
