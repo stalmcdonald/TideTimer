@@ -1,3 +1,11 @@
+/*
+ * 
+ * Crystal McDonald
+ * Java II
+ * 1308
+ * Week 1
+ * 
+ */
 package com.cm.tidetimer;
 
 import com.cm.tidetimer.WebFile;
@@ -7,7 +15,7 @@ import com.cm.tidetimer.TideDisplay;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.URLEncoder;
+
 import java.util.HashMap;
 import android.util.Log;
 
@@ -38,10 +46,10 @@ public class MainActivity extends Activity {
 	LocDisplay _faveWater;
 	Boolean _connected = false;//want to assume not connected
 	HashMap<String, String> _history;
-	TextView _title;
-	TextView _date;
-	TextView _temp;
-	TextView _text;
+	TextView _tideSite;
+	TextView _tzname;
+	TextView _unitst;
+	TextView _type;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,8 +81,7 @@ public class MainActivity extends Activity {
       			public void onClick(View v){
       				Log.i("CITY ENTERED: ",_search.getField().getText().toString());
       				getfaveWatLoc(_search.getField().getText().toString());
-      			}
-      			
+      			}	
       		});
       		
       		
@@ -150,7 +157,7 @@ public class MainActivity extends Activity {
     private class LocRequest extends AsyncTask<URL,Void,String>{
     	//override 2 separate functions
     	@Override
-    	protected String doInBackground(URL... urls){
+    	protected String doInBackground(URL...urls){
     		String response = "";
     		//pass an array even though it only holds one
     		for(URL url: urls){

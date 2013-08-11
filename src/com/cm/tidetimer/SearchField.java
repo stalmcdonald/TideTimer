@@ -1,12 +1,22 @@
+/*
+ * 
+ * Crystal McDonald
+ * Java II
+ * 1308
+ * Week 1
+ * 
+ */
 package com.cm.tidetimer;
 
 
-	import android.content.Context;
+import android.annotation.SuppressLint;
+import android.content.Context;
 
-	import android.widget.Button;
-	import android.widget.EditText;
-	import android.widget.LinearLayout;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 
+	@SuppressLint("ViewConstructor")
 	public class SearchField extends LinearLayout{
 
 		//global variables
