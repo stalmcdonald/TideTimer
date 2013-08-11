@@ -14,7 +14,7 @@ public class WebFile {
 
 
 		static Boolean _conn = false; //always assume there's no connection
-		static String _connectionType = "Unavailable";
+		static String _connectionType = "Unavailable"; //unavailable by default
 		
 		public static String getConnnectionType(Context context){ //runs function
 			netInfo(context);
@@ -33,8 +33,8 @@ public class WebFile {
 			NetworkInfo ni = cm.getActiveNetworkInfo();//gets dynamic network info.
 			if(ni != null){
 				if(ni.isConnected()){
-					_connectionType = ni.getTypeName();//if theres a connection and what type it is
-					_conn = true;
+					_connectionType = ni.getTypeName();//if there's a connection and what type it is
+					_conn = true;//actually do have a connection
 			}
 		
 		}
@@ -45,13 +45,12 @@ public class WebFile {
 		public static String getURLSTringResponse(URL url){
 			String response = "";
 			
-			//run contact int specific
-			//universal function
+			//run context int specific
 			//try catch statement
 			try{
-				URLConnection conn = url.openConnection();
+				URLConnection conn = url.openConnection();//open connection to a server
 				//accept the info url returns thru buffer input string
-				BufferedInputStream bin = new BufferedInputStream(conn.getInputStream());
+				BufferedInputStream bin = new BufferedInputStream(conn.getInputStream());//get data in order, get new stream and attach it to buffer
 				
 				byte[] contentBytes = new byte[1024];
 				//loop thru bytes needed to get and keep track of them
@@ -59,7 +58,7 @@ public class WebFile {
 				//holds data as it comes in as a string form.
 				StringBuffer responseBuffer = new StringBuffer();
 				
-				//allow the bytes read to count up
+				//allow the bytes read to count up until the entire file is there
 				while((bytesRead = bin.read(contentBytes))!= -1){
 					response = new String(contentBytes,0,bytesRead);
 					//content buffered into a single string
@@ -69,7 +68,7 @@ public class WebFile {
 				//response buffer holds all data
 				return responseBuffer.toString();
 			} catch (Exception e){
-				Log.e("URL RESPONSE ERROR", "getURLStringRsponse");
+				Log.e("URL RESPONSE ERROR", "getURLStringResponse");
 			}
 				
 			
